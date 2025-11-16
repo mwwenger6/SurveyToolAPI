@@ -2,9 +2,9 @@
 
 This project implements a RESTful API for a Survey Tool. The system API allows users to create and manage surveys, questions, and responses. A score for a survey response can also be retreived using one of the endpoints.
 
-This repository includes two main components:
+This project includes two main components:
 
-1. **Survey Tool API:** A backend built using C\# and .NET 8.  
+1. **Survey Tool API:** A backend built using C\# and .NET 8.  Repo at https://github.com/mwwenger6/SurveyToolAPI.git
 2. **Survey Frontend:** A webpage built using React Typescript. Repo at https://github.com/mwwenger6/SurveyToolReact.git
 
 ## **2\. Technical Stack**
@@ -112,6 +112,8 @@ The core entities are designed with a clear relationship structure:
 | **ResponseAnswer** | Links a Response to the specific Answers selected. | Many-to-one relationship with Response and Answer. |
 
 This structure allows for handling both free text, single, and multiple-choice questions effectively, as a single response can be associated with multiple answers.
+
+ERD Diagram found at https://github.com/mwwenger6/SurveyToolAPI/blob/master/Survey_Tool_Diagram.png
 
 ## **7\. Assumptions Made**
 
