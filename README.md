@@ -2,10 +2,10 @@
 
 This project implements a RESTful API for a Survey Tool. The system API allows users to create and manage surveys, questions, and responses. A score for a survey response can also be retreived using one of the endpoints.
 
-This repository includes two main components:
+This project includes two main components:
 
-1. **Survey Tool API:** A backend built using C\# and .NET 8.  
-2. **Survey Frontend:** A webpage built using React Typescript
+1. **Survey Tool API:** A backend built using C\# and .NET 8.  Repo at https://github.com/mwwenger6/SurveyToolAPI.git
+2. **Survey Frontend:** A webpage built using React Typescript. Repo at https://github.com/mwwenger6/SurveyToolReact.git
 
 ## **2\. Technical Stack**
 
@@ -113,6 +113,8 @@ The core entities are designed with a clear relationship structure:
 
 This structure allows for handling both free text, single, and multiple-choice questions effectively, as a single response can be associated with multiple answers.
 
+ERD Diagram found at https://github.com/mwwenger6/SurveyToolAPI/blob/master/Survey_Tool_Diagram.png
+
 ## **7\. Assumptions Made**
 
 1. **Authentication/Authorization:** There is no user authentication. All API endpoints are publicly accessible.  
@@ -122,3 +124,73 @@ This structure allows for handling both free text, single, and multiple-choice q
 5. **Initial Data:** The application **does not** include initial data upon startup. Surveys must be created via the API before responses can be submitted.
 6. **Transactions:** The API does not use transactions as it was limited by the In-Memory Database.
 7. **Persistence:** All data is lost when the API is stopped.
+
+
+## **8\. Example of a Survey (json)**
+
+{
+  "surveyId": 0,
+  "title": "Software Bug Submission Form",
+  "description": "Use this form to report bugs encountered in the latest software build.",
+  "questions": [
+    {
+      "questionId": 0,
+      "typeId": 1,
+      "text": "Severity of the issue:",
+      "surveyId": 0,
+      "answers": [
+        {
+          "answerNumber": 1,
+          "questionId": 0,
+          "text": "Low (Minor UI issue)",
+          "weight": 1
+        },
+        {
+          "answerNumber": 2,
+          "questionId": 0,
+          "text": "Medium (Workflow interrupted)",
+          "weight": 2
+        },
+        {
+          "answerNumber": 3,
+          "questionId": 0,
+          "text": "High (Application crash/data loss)",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "questionId": 0,
+      "typeId": 3,
+      "text": "Please provide exact steps to reproduce the bug.",
+      "surveyId": 0,
+      "answers": []
+    },
+    {
+      "questionId": 0,
+      "typeId": 2,
+      "text": "Which browsers did you test the issue on? (Select all)",
+      "surveyId": 0,
+      "answers": [
+        {
+          "answerNumber": 1,
+          "questionId": 0,
+          "text": "Chrome",
+          "weight": 1
+        },
+        {
+          "answerNumber": 2,
+          "questionId": 0,
+          "text": "Firefox",
+          "weight": 1
+        },
+        {
+          "answerNumber": 3,
+          "questionId": 0,
+          "text": "Edge",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}
